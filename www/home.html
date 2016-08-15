@@ -1,0 +1,31 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+	<meta http-equiv="Content-Security-Policy" content="default-src data: gap: https://ssl.gstatic.com 'unsafe-eval' *; style-src 'self' 'unsafe-inline'; script-src 'self' 'unsafe-inline' 'unsafe-eval' http:; connect-src 'self' http:">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+	<script type="text/javascript" src="js/home.js"></script>
+	<script type="text/javascript" src="js/init.js"></script>
+
+	
+	<link href="flot/examples/examples.css" rel="stylesheet" type="text/css"> 
+	
+	<script language="javascript" type="text/javascript" src="flot/jquery.flot.js"></script>
+	<script language="javascript" type="text/javascript" src="flot/jquery.flot.time.js"></script>
+	
+</head>
+<body>
+
+	<div id="header">
+		<h2>Home, Welcome </h2>
+	</div>
+		<div class="demo-container">
+			<div id="placeholder" class="demo-placeholder"></div>
+		</div>
+		<input id="updateInterval" type="text" value="10000" style="text-align: right; width:5em"> milliseconds</p>
+		
+	<button id="self-cal-button"> Calories </button> <button onclick="loadSteps()"> Steps </button> <button onclick="loadDistance()"> Distance </button> <button onclick="loadHeart()"> Heartrate </button> <button onclick="loadPermissiondiv()"> Manage Permission </button>
+
+</body>
+</html>

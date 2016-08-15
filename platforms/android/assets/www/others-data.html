@@ -1,0 +1,179 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<!--
+    Licensed to the Apache Software Foundation (ASF) under one
+    or more contributor license agreements.  See the NOTICE file
+    distributed with this work for additional information
+    regarding copyright ownership.  The ASF licenses this file
+    to you under the Apache License, Version 2.0 (the
+    "License"); you may not use this file except in compliance
+    with the License.  You may obtain a copy of the License at
+
+    http://www.apache.org/licenses/LICENSE-2.0
+
+    Unless required by applicable law or agreed to in writing,
+    software distributed under the License is distributed on an
+    "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+     KIND, either express or implied.  See the License for the
+    specific language governing permissions and limitations
+    under the License.
+-->
+<html>
+    <head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta name="description" content="">
+		<meta name="author" content="">
+        <!--
+        Customize this policy to fit your own app's needs. For more guidance, see:
+            https://github.com/apache/cordova-plugin-whitelist/blob/master/README.md#content-security-policy
+        Some notes:
+            * gap: is required only on iOS (when using UIWebView) and is needed for JS->native communication
+            * https://ssl.gstatic.com is required only on Android and is needed for TalkBack to function properly
+            * Disables use of inline scripts in order to mitigate risk of XSS vulnerabilities. To change this:
+                * Enable inline JS: add 'unsafe-inline' to default-src
+        -->
+        <meta http-equiv="Content-Security-Policy" content="default-src data: gap: https://ssl.gstatic.com 'unsafe-eval' *; style-src 'self' 'unsafe-inline'; script-src 'self' 'unsafe-inline' 'unsafe-eval' http:; connect-src 'self' http:">
+		<meta name="format-detection" content="telephone=no">
+		<meta name="msapplication-tap-highlight" content="no">
+		<title>HealthMG</title>
+		
+		<!-- Bootstrap Core CSS -->
+		<link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+		<!-- Custom Fonts -->
+		<link href="vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+		<link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
+		<link href='https://fonts.googleapis.com/css?family=Kaushan+Script' rel='stylesheet' type='text/css'>
+		<link href='https://fonts.googleapis.com/css?family=Droid+Serif:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+		<link href='https://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700' rel='stylesheet' type='text/css'>
+		
+		<!-- Theme CSS -->
+		<link href="css/agency.min.css" rel="stylesheet">
+		<!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+		<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+		<!--[if lt IE 9]>
+			<script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+			<script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+		<![endif]-->
+		<!---<link rel="stylesheet" type="text/css" href="css/index.css"> 
+		<link rel="stylesheet" type="text/css" href="css/style.css" />
+		<link rel="stylesheet" type="text/css" href="css/bootstrap.css" />
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css">
+		<link rel="stylesheet" href="http://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css"> --->
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+		
+    </head>
+    <body style="background-color:rgba(0, 0, 0, 0.7); color: white;">
+		<!-- Navigation -->
+    <nav id="mainNav" class="navbar navbar-default navbar-custom navbar-fixed-top">
+        <div class="container">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header page-scroll">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                    <span class="sr-only">Toggle navigation</span> <i class="fa fa-bars"></i>
+                </button>
+                <a class="navbar-brand page-scroll" href="#page-top">HealthMG</a>
+            </div>
+
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav navbar-right">
+                    <li class="hidden">
+                        <a href="#page-top"></a>
+                    </li>
+                    <li>
+                        <a class="page-scroll" href="dashboard.html" onclick="redirect_to_dashbaord()">Dashboard</a>
+                    </li>
+                    <li>
+                        <a class="page-scroll" href="permission.html" onclick="redirect_to_permission()">Grant Permission</a>
+                    </li>
+                    <li>
+                        <a class="page-scroll" href="revoke.html" onclick="redirect_to_revoke()">Revoke Permission</a>
+                    </li>
+                    <li>
+                        <a class="page-scroll" href="permitted-users.html" onclick="redirect_to_permittedUsers()">View Permission</a>
+                    </li>
+                    <li>
+                        <a class="page-scroll" href="others-data-list.html" onclick="redirect_to_othersdata_list()">Other's Health</a>
+                    </li>
+					<li>
+                        <a class="page-scroll" href="index.html" onclick="redirect_to_index()">Logout</a>
+                    </li>
+                </ul>
+            </div>
+            <!-- /.navbar-collapse -->
+        </div>
+        <!-- /.container-fluid -->
+    </nav>
+	<section>
+		<div class="container">	
+			<div class="row" style="margin-top: 0px; margin-bottom: 0px; padding-bottom: 0px;">
+				<div id="main-div" >
+					<h3 class="col-md-12 text-center" style="margin-top: 0px; margin-bottom: 0px; padding-bottom: 10px;"> Name/Email of that person </h3>
+					
+				</div>
+				<div class="demo-container col-xs-12" id="charts-div" style="background-color: red;">
+					<div id="placeholder" class="demo-placeholder"> Charts 
+					<br>
+					Charts<br>
+					Charts
+					
+					</div>
+				</div>
+				<div class="col-xs-6 ">	
+					<button class="btn btn-primary btn-lg btn-block" id="self-cal-button">Calories</button> 
+					<button class="btn btn-primary btn-lg btn-block" id="self-step-button">Steps Taken</button> 
+				</div>
+				<div class="col-xs-6 ">
+					<button class="btn btn-primary btn-lg btn-block" id="self-heartrate-button">Heart-rate</button>
+					<button class="btn btn-primary btn-lg btn-block" id="self-distance-button">Distance</button>
+				</div>
+				
+			</div>
+		</div> 
+	</section>
+	<footer>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4">
+                    <span class="copyright">Copyright &copy; HealthMG 2016</span>
+                </div>
+                <div class="col-md-4">
+                    <ul class="list-inline social-buttons">
+                         <li><a href="https://mobile.twitter.com/session/new"><i class="fa fa-twitter"></i></a>
+                        </li>
+                        <li><a href="https://www.facebook.com/login/"><i class="fa fa-facebook"></i></a>
+                        </li>
+                        <li><a href="https://www.linkedin.com/uas/login?goback=&trk=hb_signin"><i class="fa fa-linkedin"></i></a>></a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </footer>		
+				
+			  
+		
+		<script type="text/javascript" src="cordova.js"></script>
+        <script type="text/javascript" src="js/index.js"></script>
+        <script type="text/javascript" src="js/init.js"></script>
+		<script type="text/javascript" src="js/othersdata.js"></script>
+		<script type="text/javascript" src="js/chart.js"></script>
+	<!-- jQuery -->
+	<script src="vendor/jquery/jquery.min.js"></script>
+
+	<!-- Bootstrap Core JavaScript -->
+	<script src="vendor/bootstrap/js/bootstrap.min.js"></script>
+
+	<!-- Plugin JavaScript -->
+	<script src="http://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.3/jquery.easing.min.js"></script>
+
+	<!-- Contact Form JavaScript -->
+	<script src="js/jqBootstrapValidation.js"></script>
+	<script src="js/contact_me.js"></script>
+
+	<!-- Theme JavaScript -->
+	<script src="js/agency.min.js"></script>
+    </body>	
+    </body>
+</html>
